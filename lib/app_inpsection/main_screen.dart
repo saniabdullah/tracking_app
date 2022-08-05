@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tracking_app/screens/barcode_screen.dart';
-import 'package:tracking_app/screens/dasboard/dasboard_screen.dart';
-import 'package:tracking_app/screens/profile/profile_screen.dart';
+import 'package:tracking_app/app_inpsection/screens/barcode/barcode_screen.dart';
+import 'package:tracking_app/app_inpsection/screens/dasboard/dasboard_screen.dart';
+import 'package:tracking_app/app_inpsection/screens/profile/profile_screen.dart';
 import 'package:tracking_app/themes/colors.dart';
 
 class MainScreen extends StatefulWidget {

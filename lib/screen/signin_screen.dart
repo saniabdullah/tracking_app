@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tracking_app/screens/main_screen.dart';
+import 'package:tracking_app/app_inpsection/main_screen.dart';
 import 'package:tracking_app/themes/colors.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -45,11 +45,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   Image.asset('assets/images/logo-hasnur.png', width: 100),
                   const SizedBox(height: 15),
                   const Text(
-                    'greeting',
+                    'HASNUR GROUP',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                   ),
                   const Text(
-                    'continueIn',
+                    'Despatch Tracking System',
                     style: TextStyle(
                         fontSize: 16,
                         color: Color(textGreen),
@@ -109,7 +109,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                           color: Colors.transparent, width: 0)),
                                   filled: true,
                                   fillColor: Colors.white,
-                                  hintText: 'textFieldPassword',
+                                  hintText: 'Password',
                                   hintStyle: const TextStyle(
                                       fontSize: 16,
                                       color: Color(textPlaceholder)),
@@ -132,7 +132,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                 ),
                                 child: const Text(
-                                  'loginButton',
+                                  'MASUK',
                                   style: TextStyle(
                                       color: Color(primaryBlack),
                                       fontSize: 16,

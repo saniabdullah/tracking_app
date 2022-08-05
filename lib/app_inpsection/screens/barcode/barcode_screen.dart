@@ -10,6 +10,6 @@ class BarcodeScreen extends StatefulWidget {
 class _BarcodeScreenState extends State<BarcodeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Text("barcode screen");
+    return const Text("barcode screen");
   }
 }

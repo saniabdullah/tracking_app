@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tracking_app/screens/signin_screen.dart';
+import 'package:tracking_app/screen/signin_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -61,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       height: 130,
                       decoration: BoxDecoration(
                           border: Border.all(
-                              width: 4,
+                              width: 2,
                               color: Theme.of(context).scaffoldBackgroundColor),
                           boxShadow: [
                             BoxShadow(
@@ -124,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   RaisedButton(
                     onPressed: () {},
-                    color: Color(primaryYellow),
+                    color: const Color(primaryYellow),
                     padding: const EdgeInsets.symmetric(horizontal: 50),
                     elevation: 2,
                     shape: RoundedRectangleBorder(
