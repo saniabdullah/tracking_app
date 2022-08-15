@@ -31,12 +31,14 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: PageStorage(bucket: _bucket, child: _currentScreen as Widget),
       floatingActionButton: SizedBox(
         height: 75,
         width: 75,
         child: FittedBox(
           child: FloatingActionButton(
+            isExtended: false,
             child: FaIcon(
               FontAwesomeIcons.qrcode,
               color: currentTab == 0

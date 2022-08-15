@@ -16,14 +16,9 @@ class _DasboardScreenState extends State<DasboardScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color(primaryYellow),
-          ),
-          onPressed: () {},
-        ),
+        title: const Center(child: Text("Pesanan Dikirim")),
       ),
+      backgroundColor: const Color(primaryYellow),
       body: SingleChildScrollView(
         child: Column(
           children: const <Widget>[

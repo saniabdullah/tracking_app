@@ -1,34 +1,31 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:tracking_app/themes/colors.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ProfileKonfirmasiScreen extends StatefulWidget {
+  const ProfileKonfirmasiScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ProfileKonfirmasiScreen> createState() =>
+      _ProfileKonfirmasiScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
-  bool showPassword = false;
+class _ProfileKonfirmasiScreenState extends State<ProfileKonfirmasiScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final _formKey = GlobalKey<FormState>();
+    final _fromKey = GlobalKey<FormState>();
     final _namaController = TextEditingController();
     final _alamatController = TextEditingController();
     final _nomorController = TextEditingController();
     final _phoneController = TextEditingController();
 
     return Scaffold(
+      backgroundColor: const Color(primaryYellow),
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
-        title: const Text("PROFILE"),
-        centerTitle: true,
+        title: const Center(child: Text("PROFILE")),
       ),
-      backgroundColor: const Color(primaryYellow),
       body: Container(
         margin: const EdgeInsets.only(
           left: kDefaultPadding,
@@ -39,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         decoration: BoxDecoration(
             color: Colors.white70,
             border: Border.all(
-                width: 1, color: Theme.of(context).scaffoldBackgroundColor),
+                width: 2, color: Theme.of(context).scaffoldBackgroundColor),
             boxShadow: [
               BoxShadow(
                   spreadRadius: 2,
@@ -54,48 +51,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: ListView(
           children: [
             Center(
-              child: Stack(
-                children: [
-                  Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 2,
-                            color: Theme.of(context).scaffoldBackgroundColor),
-                        boxShadow: [
-                          BoxShadow(
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              color: Colors.black.withOpacity(0.1),
-                              offset: const Offset(0, 10))
-                        ],
-                        shape: BoxShape.circle,
-                        image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image:
-                                AssetImage('assets/images/logo-hasnur.png'))),
-                  ),
-                  Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        height: 25,
-                        width: 25,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: 1,
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                          ),
-                          color: const Color(primaryYellow),
-                        ),
-                        child: const Icon(
-                          Icons.edit,
-                          color: Colors.white,
-                        ),
-                      )),
-                ],
+              child: Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        width: 2,
+                        color: Theme.of(context).scaffoldBackgroundColor),
+                    boxShadow: [
+                      BoxShadow(
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                          color: Colors.black.withOpacity(0.1),
+                          offset: const Offset(0, 10))
+                    ],
+                    shape: BoxShape.circle,
+                    image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/logo-hasnur.png'))),
               ),
             ),
             const SizedBox(
@@ -104,14 +77,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(
               width: size.width * 0.5,
               child: Form(
-                key: _formKey,
+                key: _fromKey,
                 child: Column(children: [
                   TextFormField(
                     controller: _namaController,
                     decoration: const InputDecoration(
                         contentPadding: EdgeInsets.only(bottom: 3),
                         floatingLabelBehavior: FloatingLabelBehavior.always,
-                        hintText: 'Nama',
+                        hintText: 'Nama Perusahaan',
                         hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -149,16 +122,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 15,
                   ),
                   TextFormField(
-                    controller: _phoneController,
+                    controller: _alamatController,
                     decoration: const InputDecoration(
                         contentPadding: EdgeInsets.only(bottom: 3),
                         floatingLabelBehavior: FloatingLabelBehavior.always,
-                        hintText: 'No. Telp',
+                        hintText: 'Alamat',
                         hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Colors.black)),
                   ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  TextFormField(
+                    controller: _phoneController,
+                    decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.only(bottom: 3),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        hintText: 'Phone',
+                        hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
+                  )
                 ]),
               ),
             ),
@@ -197,6 +184,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildTextField(
+      String labelText, String placeholder, bool isPasswordTextField) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 35.0),
+      child: TextField(
+        decoration: InputDecoration(
+            suffixIcon: isPasswordTextField
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {});
+                    },
+                    icon: const Icon(
+                      Icons.remove_red_eye,
+                      color: Colors.grey,
+                    ),
+                  )
+                : null,
+            contentPadding: const EdgeInsets.only(bottom: 3),
+            labelText: labelText,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            hintText: placeholder,
+            hintStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
       ),
     );
   }

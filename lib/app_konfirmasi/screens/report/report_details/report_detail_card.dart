@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tracking_app/app_inpsection/screens/dasboard/details/pesanan_detail.dart';
-import 'package:tracking_app/app_inpsection/screens/dasboard/details/tracking_detail.dart';
 import 'package:tracking_app/themes/colors.dart';
 
-class DasboardCard extends StatefulWidget {
-  const DasboardCard({Key? key}) : super(key: key);
+class ReportDetailCard extends StatefulWidget {
+  const ReportDetailCard({Key? key}) : super(key: key);
 
   @override
-  State<DasboardCard> createState() => _DasboardCardState();
+  State<ReportDetailCard> createState() => _ReportDetailCardState();
 }
 
-class _DasboardCardState extends State<DasboardCard> {
+class _ReportDetailCardState extends State<ReportDetailCard> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -25,7 +23,7 @@ class _DasboardCardState extends State<DasboardCard> {
       decoration: BoxDecoration(
         color: Colors.white70,
         border: Border.all(
-            width: 1, color: Theme.of(context).scaffoldBackgroundColor),
+            width: 2, color: Theme.of(context).scaffoldBackgroundColor),
         boxShadow: [
           BoxShadow(
               spreadRadius: 2,
@@ -138,20 +136,36 @@ class _DasboardCardState extends State<DasboardCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
-                  padding: const EdgeInsets.only(left: 15, right: 15),
                   decoration: const BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.green,
                       borderRadius: BorderRadius.all(Radius.circular(8))),
                   child: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (ctx) => const PesananDetail()));
+                      // Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (ctx) => const PesananDetail()));
                     },
-                    child: const Text(
-                      "Detail Pesan",
-                      style: TextStyle(color: Colors.white),
+                    child: Column(
+                      children: const [
+                        Text(
+                          "Konfirmasi terima sebelum",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "08 - 04 - 2022",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -159,21 +173,17 @@ class _DasboardCardState extends State<DasboardCard> {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.red,
                         borderRadius: BorderRadius.all(Radius.circular(8))),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (ctx) => const TrackingDetail()));
-                      },
-                      icon: const FaIcon(
-                        FontAwesomeIcons.qrcode,
-                        color: Color(primaryYellow),
-                        size: 24,
-                      ),
-                    ),
+                    child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Pesan Diterima",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        )),
                   ),
                 ),
               ],

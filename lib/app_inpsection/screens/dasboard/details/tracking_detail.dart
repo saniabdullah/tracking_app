@@ -15,7 +15,9 @@ class _TrackingDetailState extends State<TrackingDetail> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: const Color(primaryYellow),
       appBar: AppBar(
+        title: const Center(child: Text('TRACKING')),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
         leading: IconButton(
@@ -29,9 +31,23 @@ class _TrackingDetailState extends State<TrackingDetail> {
       ),
       body: SingleChildScrollView(
         child: Column(children: <Widget>[
+          const SizedBox(
+            height: 50,
+          ),
           _WidgetSuratJalan(size: size),
-          _WidgetNamaPT(size: size),
           _WidgetWaktuDanLokasi(size: size),
+          Container(
+            width: 100,
+            decoration: const BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            child: TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Sesuai',
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                )),
+          )
         ]),
       ),
     );
@@ -72,6 +88,32 @@ class _WidgetWaktuDanLokasiState extends State<_WidgetWaktuDanLokasi> {
           borderRadius: const BorderRadius.all(Radius.circular(20))),
       width: widget.size.width,
       child: Column(children: [
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                const Text(
+                  "Asal Tujuan",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                const Text(
+                  "PT. Mantul",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green),
+                )
+              ],
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.all(15),
           child: Row(
@@ -141,65 +183,6 @@ class _WidgetWaktuDanLokasiState extends State<_WidgetWaktuDanLokasi> {
           ),
         )
       ]),
-    );
-  }
-}
-
-class _WidgetNamaPT extends StatefulWidget {
-  const _WidgetNamaPT({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  State<_WidgetNamaPT> createState() => _WidgetNamaPTState();
-}
-
-class _WidgetNamaPTState extends State<_WidgetNamaPT> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(
-          left: kDefaultPadding,
-          right: kDefaultPadding,
-          top: kDefaultPadding / 2,
-          bottom: kDefaultPadding),
-      decoration: BoxDecoration(
-          color: Colors.white70,
-          border: Border.all(
-              width: 2, color: Theme.of(context).scaffoldBackgroundColor),
-          boxShadow: [
-            BoxShadow(
-                spreadRadius: 2,
-                blurRadius: 10,
-                color: Colors.black.withOpacity(0.1),
-                offset: const Offset(0, 10)),
-          ],
-          borderRadius: const BorderRadius.all(Radius.circular(20))),
-      width: widget.size.width,
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            const Text(
-              "Asal Tujuan",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-            const Text(
-              "PT. Mantul",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
-      ),
     );
   }
 }
